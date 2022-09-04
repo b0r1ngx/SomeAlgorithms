@@ -1,14 +1,14 @@
 package rmartin.part1
 
 // Abstraction over `find element in collection`
-
-
-infix fun String.sE(v: String) = this == v
+infix fun String.contains(other: String) = other in this
+infix fun String.contains(other: Char) = other in this
 
 
 fun main() {
-    val msg = "t"
-    println(msg sE)
+    val msg = "text"
+    println(msg.contains("te"))
+    println(msg.contains("x"))
 }
 
 
