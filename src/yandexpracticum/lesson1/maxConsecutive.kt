@@ -1,4 +1,4 @@
-package yandexpracticum
+package yandexpracticum.lesson1
 
 fun <T> findNextOtherIndexElement(currIndex: Int, collection: Array<T>): Int {
     var nextOtherValueIndex = currIndex
@@ -12,8 +12,7 @@ fun <T> findNextOtherIndexElement(currIndex: Int, collection: Array<T>): Int {
 }
 
 fun <T> maxConsecutiveElements(collection: Array<T>): Int {
-    var result = 0
-    var currIndex = 0
+    var (result, currIndex) = 0 to 0
 
     while (currIndex < collection.size) {
         val nextOtherValueIndex = findNextOtherIndexElement(currIndex, collection)
@@ -36,8 +35,7 @@ fun findNextOtherValueIndex(currIndex: Int, sequence: CharSequence): Int {
 }
 
 fun maxConsecutiveChars(sequence: CharSequence): Int {
-    var result = 0
-    var currIndex = 0
+    var (result, currIndex) = 0 to 0
 
     while (currIndex < sequence.length) {
         val nextOtherValueIndex = findNextOtherValueIndex(currIndex, sequence)
