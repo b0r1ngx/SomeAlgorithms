@@ -2,14 +2,18 @@ package mipt.dp
 
 import kotlin.math.max
 
-/* For tasks in dynamic programming, we must discuss and set as initial data 5 points:
+/* For tasks in dynamic programming, we must discuss and set 5 things that we need to keep in head:
  * 1. What is saved in dp?
- * (For the possibility to solve problem in dynamic programming way, problem must have a chance to be divided)
- * (information of big and difficult problem is analogically must be presented as much but a smaller problem)
- * 2. Base of dp
- * 3. Formula of re-count
- * 4. Order of re-count
+ *    (for the possibility to solve problem in dynamic programming way,
+ *     problem must have a chance to be divided (information of big and difficult
+ *     problem is analogically must be presented as much but a smaller problem))
+ * 2. Base of dp (Initial start / state)
+ * 3. Formula of reсalculation
+ *    (what we must do on each new step) \ ___(how to transfer from start to end (between states),
+ * 4. Order of recalculation             /      to successfully get closer to an answer)
+ *    (from start, to what way we need to go?)
  * 5. Where is the answer?
+ *    (where to find it, after algorithm is done working)
  */
 
 /*
@@ -29,7 +33,8 @@ import kotlin.math.max
  *
  * from start point, grasshopper can jump to -5 or -10, and so on..
  *
- * 1. Let dp[i], 1, 2, .. i - is the max sum that we can get, if stairs is restricted by first i-steps
+ * 1. Let dp[i] (i = 0, 1, .. len(grasshopper_road)), is the max sum,
+ *    that we can get, if stairs is restricted by first i-steps.
  * 2. dp[0] = 0, dp[1] = a[1]
  * 3. dp[i] = ai + max (dp[i - 1], dp[i - 2])
  * 4. i = 1, 2 ... n (in ascending order)
