@@ -1,4 +1,4 @@
-package yandexpracticum.lesson3
+package yandexpracticum.sorts.lesson3
 
 import kotlin.math.log2
 

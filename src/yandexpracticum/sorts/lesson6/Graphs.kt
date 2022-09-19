@@ -1,4 +1,4 @@
-package yandexpracticum.lesson6
+package yandexpracticum.sorts.lesson6
 
 /** Some notes from lesson paper:
  *

@@ -1,4 +1,4 @@
-package yandexpracticum.lesson2
+package yandexpracticum.sorts.lesson2
 
 /**
  * Task:

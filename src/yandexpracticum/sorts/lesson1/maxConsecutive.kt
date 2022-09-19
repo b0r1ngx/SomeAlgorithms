@@ -1,4 +1,4 @@
-package yandexpracticum.lesson1
+package yandexpracticum.sorts.lesson1
 
 fun <T> findNextOtherIndexElement(currIndex: Int, collection: Array<T>): Int {
     var nextOtherValueIndex = currIndex

@@ -1,4 +1,4 @@
-package yandexpracticum.lesson4
+package yandexpracticum.sorts.lesson4
 
 /**
  *  I knew a shortcut, with a formula !)

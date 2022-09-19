@@ -1,4 +1,4 @@
-package yandexpracticum.lesson3
+package yandexpracticum.sorts.lesson3
 
 fun binarySearch(sortedArray: Array<Int>, target: Int): Boolean {
     var (left, mid, right) = Triple(0, 0, sortedArray.size)

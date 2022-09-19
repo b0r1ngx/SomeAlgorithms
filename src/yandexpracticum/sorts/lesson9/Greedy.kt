@@ -1,4 +1,4 @@
-package yandexpracticum.lesson9
+package yandexpracticum.sorts.lesson9
 
 /**
  * Задача: есть N соревнований по спортивному программированию,

@@ -1,4 +1,4 @@
-package yandexpracticum.lesson8
+package yandexpracticum.sorts.lesson8
 
 /**
  * Динамическое программирование (ДП) — это не конкретный алгоритм,
