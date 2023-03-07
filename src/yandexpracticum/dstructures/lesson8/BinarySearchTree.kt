@@ -1,5 +1,9 @@
 package yandexpracticum.dstructures.lesson8
 
+import java.util.TreeMap
+import java.util.TreeSet
+import kotlin.math.abs
+
 /**
  * Задача:
  * Дан массив целых чисел длины N и число K.
@@ -45,9 +49,44 @@ fun findMedianForWindow(array: Array<Int>, windowLength: Int): MutableList<Float
     return mediums
 }
 
+//fun findMediumForWindowYandexRewrite(array: Array<Int>, windowLength: Int): MutableList<Float> {
+//    fun getMedian(array: TreeSet<Array<Int>>) =
+//        if (array.size % 2 == 1)
+//            array[array.size / 2]
+//        else
+//            (array[array.size / 2 - 1] + array[array.size / 2]) / 2
+//
+//    val window = sortedSetOf(array.copyOfRange(0, windowLength))
+//    val result = mutableListOf(getMedian(window))
+//
+//    for (i in windowLength until array.size) {
+//        window.remove(array[i - windowLength])
+//        window.add(array[i])
+//        result.add(getMedian(window))
+//    }
+//
+//    return result
+//}
+//
+//fun containsNonStrict(nums: TreeSet<Float>, x: Float, eps: Float = 1e-9f): Boolean {
+//    val candidateIndexes = nums.lower(x - eps)
+//    return candidateIndexes < nums.size && abs(nums[candidateIndexes] - x) < eps
+//}
+////def contains_nonstrict(nums, x, eps=1e-9):
+////candidate_idx = nums.bisect_left(x - eps)
+////return candidate_idx < len(nums) and abs(nums[candidate_idx] - x) < eps
+
 fun main() {
-    println(findMedianForWindow(
-        array = arrayOf(5, 8, 3, 1, 15, 13, 19, 20),
-        windowLength = 4
-    ))
+    println(
+        findMedianForWindow(
+            array = arrayOf(5, 8, 3, 1, 15, 13, 19, 20),
+            windowLength = 4
+        )
+    )
+    val excsTypeList: String? = null
+//    if (excsTypes != null) {
+//        excsTypeList = TypeList(null)
+//        excsTypeList.types = ArrayList(excsTypes)
+//    }
+
 }
