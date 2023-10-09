@@ -3,9 +3,9 @@ object Sum {
 }
 
 fun main() {
-    val t = readLine()!!.toInt()
+    val t = readln().toInt()
     for (i in 0 until t) {
-        val (a, b) = readLine()!!.split(' ')
+        val (a, b) = readln().split(' ')
         println(Sum.sum(a.toInt(), b.toInt()))
     }
 }
