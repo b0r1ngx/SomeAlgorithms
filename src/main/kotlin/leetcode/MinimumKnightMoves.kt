@@ -13,14 +13,15 @@ class Knight {
         val allAvailableTilesToVisit = mutableSetOf(from)
 
         var moves = 0
+        val nextMoves = mutableListOf<Tile>()
         while (!allAvailableTilesToVisit.contains(to)) {
-            var nextMoves: List<Tile> = listOf()
             allAvailableTilesToVisit.forEach {
-                nextMoves = it.availableMoves()
+                nextMoves.addAll(it.availableMoves())
             }
             moves += 1
             allAvailableTilesToVisit.addAll(nextMoves)
-//            println(allAvailableTilesToVisit)
+            nextMoves.clear()
+            println(allAvailableTilesToVisit)
         }
 
         // TODO: val fromToPath: List<Tile>
