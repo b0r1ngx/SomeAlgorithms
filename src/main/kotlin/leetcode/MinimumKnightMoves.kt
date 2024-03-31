@@ -10,9 +10,6 @@ interface Figure {
 
 class Knight : Figure {
     fun minimumMoves(from: Tile, to: Tile): Int {
-        // check how it works if here is List, Map, etc...
-        // tested for List: Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
-        // TODO: check realisation to run with List, but additional check of previous visited tiles (is it really profitable???)
         val allAvailableTilesToVisit = mutableSetOf(from)
 
         var moves = 0
@@ -26,7 +23,6 @@ class Knight : Figure {
             nextMoves.clear()
         }
 
-        // TODO: val fromToPath: List<Tile>
         return moves
     }
 
