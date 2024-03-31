@@ -1,13 +1,12 @@
 package leetcode
 
-data class Tile(val x: Int, val y: Int) {
-    // TODO: For any of figure? make it with best practices (using Factory Pattern)
-    fun availableTilesToMove(): List<Tile> {
-        return listOf()
-    }
+data class Tile(val x: Int, val y: Int)
+
+interface Figure {
+    fun Tile.availableMoves(): List<Tile>
 }
 
-class Knight {
+class Knight : Figure {
     fun minimumMoves(from: Tile, to: Tile): Int {
         // check how it works if here is List, Map, etc...
         val allAvailableTilesToVisit = mutableSetOf(from)
@@ -28,7 +27,7 @@ class Knight {
         return moves
     }
 
-    private fun Tile.availableMoves(): List<Tile> {
+    override fun Tile.availableMoves(): List<Tile> {
         return listOf(
             copy(x = x + 1, y = y + 2),
             copy(x = x + 2, y = y + 1),
@@ -45,10 +44,15 @@ class Knight {
 
 fun main() {
     val from = Tile(0, 0)
-    val to1 = Tile(0, 0)
-    val to2 = Tile(1, 2)
-    val to3 = Tile(1, 1)
-    val to4 = Tile(2, 2)
-    val moves = Knight().minimumMoves(from, to4)
-    println(moves)
+    val tos = listOf(
+        Tile(0, 0),
+        Tile(1, 2),
+        Tile(1, 1),
+        Tile(2, 2)
+    )
+
+    for (to in tos) {
+        val moves = Knight().minimumMoves(from, to)
+        println(moves)
+    }
 }
