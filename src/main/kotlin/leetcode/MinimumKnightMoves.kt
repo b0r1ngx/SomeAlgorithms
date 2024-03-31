@@ -1,5 +1,7 @@
 package leetcode
 
+import kotlin.time.measureTime
+
 data class Tile(val x: Int, val y: Int)
 
 interface Figure {
@@ -9,6 +11,8 @@ interface Figure {
 class Knight : Figure {
     fun minimumMoves(from: Tile, to: Tile): Int {
         // check how it works if here is List, Map, etc...
+        // tested for List: Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
+        // TODO: check realisation to run with List, but additional check of previous visited tiles (is it really profitable???)
         val allAvailableTilesToVisit = mutableSetOf(from)
 
         var moves = 0
@@ -20,7 +24,6 @@ class Knight : Figure {
             moves += 1
             allAvailableTilesToVisit.addAll(nextMoves)
             nextMoves.clear()
-            println(allAvailableTilesToVisit)
         }
 
         // TODO: val fromToPath: List<Tile>
@@ -48,11 +51,16 @@ fun main() {
         Tile(0, 0),
         Tile(1, 2),
         Tile(1, 1),
-        Tile(2, 2)
+        Tile(2, 2),
+        Tile(8, 8),
+        Tile(100, 100)
     )
 
-    for (to in tos) {
-        val moves = Knight().minimumMoves(from, to)
-        println(moves)
+    val duration = measureTime {
+        for (to in tos) {
+            val moves = Knight().minimumMoves(from, to)
+            println(moves)
+        }
     }
+    println("duration: $duration")
 }
