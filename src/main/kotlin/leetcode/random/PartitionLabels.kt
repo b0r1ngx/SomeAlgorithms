@@ -1,10 +1,7 @@
 package leetcode.random
 
 fun partitionLabels(s: String): List<Int> {
-    val result = mutableListOf<Int>()
-
-    val leftPointer = 0
-    val rightPointer = s.length - 1
+    val result = mutableListOf<String>()
 
     val charIndexMap = mutableMapOf<Char, MutableList<Int>>()
     s.forEachIndexed { index, char ->
@@ -15,14 +12,54 @@ fun partitionLabels(s: String): List<Int> {
         }
     }
 
-    for (char in s) {
-        val charOccurrences = charIndexMap[char]
+    var currIndex = 0
+    for ((char, charOccurrences) in charIndexMap) {
+        if (charOccurrences.size == 1) {
+            result.add(char.toString())
+            continue
+        }
 
-        val minIndex = charOccurrences?.first() ?: -1
+        val minIndex = charOccurrences.first()
         val maxIndex = charOccurrences.last()
+
+        if (currIndex <= minIndex) {
+            currIndex = minIndex
+        }
+
+        while (true) {
+            val char = s[currIndex]
+            charIndexMap[char]
+        }
     }
 
-    return result
+    for (char in s) {
+        val charOccurrences = charIndexMap[char]!!
+    }
+// scratch idea
+//    currIndex = 0
+//    char = s[currIndex]
+//    charOccuerences  = map[char]
+//
+//
+//    while currIndex < maxIndex
+//        if maxIndex == s.length -1:
+//        result.add(s.substring(currIndex, maxIndex - 1))
+//        return@forEach
+//
+//
+//        currChar = s[currIndex]
+//
+//        charIndexes = map[currChar]
+//
+//        if charIndexes.max > maxIndex
+//        char = currChar
+//
+//        currIndex += 1
+//
+//        if currIndex == maxIndex
+//        result.add(s.substring(minIndex, maxIndex))
+
+    return result.map { it.length }
 }
 
 fun main() {
