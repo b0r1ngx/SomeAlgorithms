@@ -1,5 +1,9 @@
 package leetcode.random
 
+/* Given an array of intervals where intervals[i] = [starti, endi],
+ * merge all overlapping intervals, and return an array
+ * of the non-overlapping intervals that cover all the intervals in the input.
+ */
 fun mergeIntervals(intervals: Array<IntArray>): Array<IntArray> {
     val result = mutableListOf<IntArray>()
     val fixedIntervals = intervals.sortedBy { it[0] } + intArrayOf(Int.MAX_VALUE, Int.MAX_VALUE)
