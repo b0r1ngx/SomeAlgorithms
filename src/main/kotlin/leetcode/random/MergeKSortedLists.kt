@@ -14,12 +14,11 @@ class MergeKSortedLists {
         }
 
         val result = mutableListOf<Int>()
-        var currMin = 10_000
-        lists.forEach {
-            if (it?.`val` != null) {
-                if (it.`val` <= currMin) {
-                    currMin = it.`val`
-                }
+        var currMin = 10_000 // max constraint by task, can be replaced by Int.MAX_VALUE
+        for (list in lists) {
+            val firstListValue = list?.`val` ?: continue
+            if (firstListValue <= currMin) {
+                currMin = firstListValue
             }
         }
 
