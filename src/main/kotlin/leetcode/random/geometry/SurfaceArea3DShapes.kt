@@ -11,26 +11,20 @@ import kotlin.math.abs
 fun surfaceArea(grid: Array<IntArray>): Int {
     var surfaceArea = 0
 
-    val rowSize = grid[0].size
-    val columnSize = grid.size
-    val gridCells = grid.size * grid[0].size
-
     for (i in grid.indices) {
         for (j in grid[i].indices) {
             val value = grid[i][j]
 
-            if (value > 0) {
-                if (i == 0) surfaceArea += 1
-                if (j == 0) surfaceArea += 1
+            if (i == 0) surfaceArea += value
+            if (j == 0) surfaceArea += value
 
-                surfaceArea += 2
+            if (value != 0) surfaceArea += 2
 
-                val rightestCell = grid[i].getOrNull(j + 1) ?: 0
-                val bottomCell = grid.getOrNull(i + 1)?.get(j) ?: 0
+            val rightestCell = grid[i].getOrNull(j + 1) ?: 0
+            val bottomCell = grid.getOrNull(i + 1)?.get(j) ?: 0
 
-                surfaceArea += abs(value - rightestCell)
-                surfaceArea += abs(value - bottomCell)
-            }
+            surfaceArea += abs(value - rightestCell)
+            surfaceArea += abs(value - bottomCell)
         }
     }
 
@@ -39,6 +33,8 @@ fun surfaceArea(grid: Array<IntArray>): Int {
 
 fun main() {
     val grid = arrayOf(intArrayOf(1, 2), intArrayOf(3, 4)) // 34
+//    val grid = arrayOf(intArrayOf(1, 1, 1), intArrayOf(1, 0, 1), intArrayOf(1, 1, 1)) // 32
+//    val grid = arrayOf(intArrayOf(2, 2, 2), intArrayOf(2, 1, 2), intArrayOf(2, 2, 2)) // 46
     // todo: need to find more 3 edges
     println(surfaceArea(grid))
 }
