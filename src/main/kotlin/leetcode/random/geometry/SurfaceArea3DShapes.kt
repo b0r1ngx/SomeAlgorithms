@@ -15,11 +15,14 @@ fun surfaceArea(grid: Array<IntArray>): Int {
         for (j in grid[i].indices) {
             val value = grid[i][j]
 
+            // if cell is on side
             if (i == 0) surfaceArea += value
             if (j == 0) surfaceArea += value
 
+            // adding for bottom and upper surface of cell
             if (value != 0) surfaceArea += 2
 
+            // while we iterate: scans right and bottom cells
             val rightCell = grid[i].getOrNull(j + 1) ?: 0
             val bottomCell = grid.getOrNull(i + 1)?.get(j) ?: 0
 
