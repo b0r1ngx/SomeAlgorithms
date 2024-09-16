@@ -20,10 +20,10 @@ fun surfaceArea(grid: Array<IntArray>): Int {
 
             if (value != 0) surfaceArea += 2
 
-            val rightestCell = grid[i].getOrNull(j + 1) ?: 0
+            val rightCell = grid[i].getOrNull(j + 1) ?: 0
             val bottomCell = grid.getOrNull(i + 1)?.get(j) ?: 0
 
-            surfaceArea += abs(value - rightestCell)
+            surfaceArea += abs(value - rightCell)
             surfaceArea += abs(value - bottomCell)
         }
     }
