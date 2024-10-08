@@ -1,6 +1,6 @@
 package leetcode.random.linkedlists
 
-import leetcode.random.ListNode
+import leetcode.datalayer.ListNode
 
 /* There is an undirected star graph consisting of n nodes labeled from 1 to n.
  * A star graph is a graph where there is one center node and exactly n - 1
@@ -8,11 +8,6 @@ import leetcode.random.ListNode
  * You are given a 2D integer array edges where each edges[i] = [ui, vi]
  * indicates that there is an edge between the nodes ui and vi. Return the center of the given star graph.
  */
-
-class ListNode(var `val`: Int) {
-    var next: ListNode? = null
-}
-
 fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
     var l1node = l1
     var l2node = l2
@@ -80,7 +75,7 @@ fun main() {
     var nextL2 = L2head
     for (i in 1 until nodeValues.size - 1) {
         val value = nodeValues[i]
-        val node =  ListNode(value)
+        val node = ListNode(value)
         nextL2.next = node
         nextL2 = node
     }
