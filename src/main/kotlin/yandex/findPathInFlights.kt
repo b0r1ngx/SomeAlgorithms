@@ -76,6 +76,31 @@ private fun createPath(from: String, to: String, paths: Map<String, String>): Li
     return result.reversed()
 }
 
+fun findPathPointers(from: String, to: String, graph: Map<String, List<String>>): List<String> {
+    // TODO: idea is to move pointers from start and end on each iteration,
+    //  then when keyTo in flightsFrom,
+    //  then return path from start to end
+    var flightsFrom = listOf(from)
+
+    val stack = Stack<String>()
+    stack.push(from)
+
+    while (stack.isNotEmpty()) {
+        val from = stack.pop()
+        flightsFrom = graph[from] ?: listOf()
+        var keyTo = ""
+        graph.forEach { (key, value) ->
+            if (to in value) {
+                keyTo = key
+                return@forEach
+            }
+        }
+
+        if (keyTo in flightsFrom) return listOf(from, keyTo, to)
+    }
+    return listOf()
+}
+
 fun main() {
     var graph = mutableMapOf(
         "A" to listOf("B", "D"), "B" to listOf("C", "N", "Z"),
