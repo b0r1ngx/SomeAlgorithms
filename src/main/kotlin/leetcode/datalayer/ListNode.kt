@@ -1,6 +1,7 @@
 package leetcode.datalayer
 
 class ListNode(var `val`: Int) {
+    var prev: ListNode? = null
     var next: ListNode? = null
 
     fun appendNode(node: ListNode) {
