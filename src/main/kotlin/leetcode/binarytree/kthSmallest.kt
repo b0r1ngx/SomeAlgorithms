@@ -4,7 +4,7 @@ fun kthSmallest(root: TreeNode?, k: Int): Int {
     var root: TreeNode? = root ?: return 0
 
     val stack = mutableListOf<TreeNode>()
-    val sortedList = mutableListOf<Int>()
+    var k = k
 
     while (root != null || stack.isNotEmpty()) {
         while (root != null) {
@@ -12,8 +12,7 @@ fun kthSmallest(root: TreeNode?, k: Int): Int {
             root = root.left
         }
         root = stack.removeLast()
-        sortedList.add(root.`val`)
-        if (sortedList.size == k) return sortedList[k-1]
+        if (--k == 0) return root.`val`
         root = root.right
     }
     return 0
