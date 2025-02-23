@@ -1,4 +1,4 @@
-package leetcode.binarytree
+package leetcode.binarytree.uniqueBSTs
 
 import java.math.BigInteger
 
@@ -22,5 +22,6 @@ fun main() {
     println(58786 == numBSTs(11))
     println(429 == numBSTs(7))
     println(5 == numBSTs(3))
+    println(2 == numBSTs(2))
     println(1 == numBSTs(1))
 }
