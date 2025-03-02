@@ -27,7 +27,20 @@ fun bitString(bits: String): Int {
     return positions
 }
 
+fun bitStringOptimal(bits: String): Int {
+    var positions = 0
+    var zeros = 0
+    for (i in bits.indices) {
+        when (bits[i]) {
+            '0' -> zeros++
+            '1' -> positions += zeros
+        }
+    }
+    return positions
+}
+
 fun main() {
     println(1 == bitString("01"))
     println(12 == bitString("01001011"))
+    println(12 == bitStringOptimal("01001011"))
 }
