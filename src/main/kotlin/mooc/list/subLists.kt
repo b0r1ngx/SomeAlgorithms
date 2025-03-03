@@ -1,4 +1,4 @@
-package mooc
+package mooc.list
 
 // You are given a list containing n integers.
 // How many ways can we choose a sublist that contains exactly two distinct integers?

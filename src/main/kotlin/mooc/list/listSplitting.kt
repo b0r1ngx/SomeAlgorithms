@@ -1,4 +1,4 @@
-package mooc
+package mooc.list
 
 // You are given a list containing n integers.
 // Your task is to count how many ways one can split the list into two parts

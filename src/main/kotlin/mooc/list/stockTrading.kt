@@ -1,4 +1,4 @@
-package mooc
+package mooc.list
 
 import kotlin.math.max
 import kotlin.math.min
