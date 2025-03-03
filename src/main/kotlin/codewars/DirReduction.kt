@@ -10,7 +10,7 @@ object DirReduction {
         directions["NORTH"] = 0
         directions["SOUTH"] = 0
         directions["WEST"] = 0
-        directions["EAST"] =  0
+        directions["EAST"] = 0
 
         for (dir in arr) {
             when (dir) {
@@ -60,7 +60,8 @@ object DirReduction {
             "NORTH" to "SOUTH",
             "SOUTH" to "NORTH",
             "WEST" to "EAST",
-            "EAST" to "WEST")
+            "EAST" to "WEST"
+        )
 
         val result = mutableListOf<String>()
 
@@ -70,7 +71,9 @@ object DirReduction {
             try {
                 if (directions[dir] == result.last()) result.removeLast()
                 else result.add(dir)
-            } catch (e: Exception) { result.add(dir) }
+            } catch (e: Exception) {
+                result.add(dir)
+            }
         }
 
         return result

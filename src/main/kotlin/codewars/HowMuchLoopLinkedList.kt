@@ -14,7 +14,7 @@ fun loopSize(n: Node<Int>?): Int {
     }
 
     var size = 0
-    for (i in temp - 1 downTo  0) {
+    for (i in temp - 1 downTo 0) {
         if (helper[i] == next) break
         else size++
     }

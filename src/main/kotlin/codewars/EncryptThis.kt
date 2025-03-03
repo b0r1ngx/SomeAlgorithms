@@ -1,6 +1,6 @@
 package codewars
 
-fun encryptThis(text:String): String{
+fun encryptThis(text: String): String {
     val textList = text.split(" ")
     var result = ""
     for (word in textList) {

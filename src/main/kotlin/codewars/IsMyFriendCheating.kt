@@ -5,7 +5,7 @@ import codewars.IsMyFriendCheating.incrementString
 object IsMyFriendCheating {
     var ny: Long = 0L
     fun removeNumbers(n: Long): Array<Array<Long>> {
-        ny =  n
+        ny = n
         val sum = sum(n)
         val a = mutableListOf<Array<Long>>()
 
@@ -38,7 +38,7 @@ object IsMyFriendCheating {
         return sum
     }
 
-    fun incrementString(str: String) : String {
+    fun incrementString(str: String): String {
         if (str == "") return "1"
         if (!str.last().isDigit()) return str + "1"
         if (str.last() == '0') return str.dropLast(1) + (str.last().digitToInt() + 1)
@@ -68,7 +68,11 @@ object IsMyFriendCheating {
         else result + (number.toInt() + 1).toString()
     }
 
-    private fun stringIsInteger(str: String): Boolean = try { str.toInt(); true } catch (e: Exception) { false }
+    private fun stringIsInteger(str: String): Boolean = try {
+        str.toInt(); true
+    } catch (e: Exception) {
+        false
+    }
 
     private fun isGetBigger(number: String): Boolean = number.length != (number.toInt() + 1).toString().length
 

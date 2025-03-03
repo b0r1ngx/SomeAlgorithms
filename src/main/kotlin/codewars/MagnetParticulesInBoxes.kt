@@ -4,19 +4,19 @@ import java.text.DecimalFormat
 import kotlin.math.abs
 import kotlin.math.pow
 
-fun doubles(maxk:Int, maxn:Int):Double {
+fun doubles(maxk: Int, maxn: Int): Double {
     var value = 0.0
-    for (k in 1 .. maxk) {
-        for (n in 1 .. maxn) {
+    for (k in 1..maxk) {
+        for (n in 1..maxn) {
             val under = n.toDouble() + 1
-            value += 1.0 / (k * under.pow(2*k))
+            value += 1.0 / (k * under.pow(2 * k))
         }
     }
     return value
 }
 
 fun main() {
-    fun assertFuzzyEquals(act:Double, exp:Double) {
+    fun assertFuzzyEquals(act: Double, exp: Double) {
         val inrange = abs(act - exp) <= 1e-6
         if (!inrange) {
             val df = DecimalFormat("#0.000000")
