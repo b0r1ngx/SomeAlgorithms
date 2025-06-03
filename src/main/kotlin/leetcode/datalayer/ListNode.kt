@@ -24,7 +24,7 @@ class ListNode(var `val`: Int) {
 }
 
 fun List<Int>.toListNode(): ListNode {
-    if (isEmpty()) throw IllegalArgumentException("List cannot be empty")
+    if (isEmpty()) throw IllegalArgumentException("List must not be empty")
 
     val head = ListNode(get(0))
     var currentNode = head
