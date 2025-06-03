@@ -1,9 +1,8 @@
 package leetcode.list
 
-
 // Given n non-negative integers representing an elevation map where the width of each bar is 1,
 // compute how much water it can trap after raining.
-fun trap(heights: IntArray): Int {
+fun trappingRainWater(heights: IntArray): Int {
     var volume = 0
 
     var leftPointer = 0
@@ -36,21 +35,21 @@ fun trap(heights: IntArray): Int {
 }
 
 fun main() {
-    println(6 == trap(intArrayOf(0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1)))
-    println(9 == trap(intArrayOf(4, 2, 0, 3, 2, 5)))
+    println(6 == trappingRainWater(intArrayOf(0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1)))
+    println(9 == trappingRainWater(intArrayOf(4, 2, 0, 3, 2, 5)))
 
     // x
     // x       x
     // x x   x x
-    println(4 == trap(intArrayOf(3, 1, 0, 1, 2)))
+    println(4 == trappingRainWater(intArrayOf(3, 1, 0, 1, 2)))
 
     // x           x
     // x       x   x
     // x x   x x x x
-    println(10 == trap(intArrayOf(3, 1, 0, 1, 2, 1, 3)))
+    println(10 == trappingRainWater(intArrayOf(3, 1, 0, 1, 2, 1, 3)))
 
     // x       x
     // x       x   x
     // x x   x x x x
-    println(8 == trap(intArrayOf(3, 1, 0, 1, 3, 1, 2)))
+    println(8 == trappingRainWater(intArrayOf(3, 1, 0, 1, 3, 1, 2)))
 }
