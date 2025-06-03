@@ -22,3 +22,17 @@ class ListNode(var `val`: Int) {
         return output
     }
 }
+
+fun List<Int>.toListNode(): ListNode {
+    if (isEmpty()) throw IllegalArgumentException("List cannot be empty")
+
+    val head = ListNode(get(0))
+    var currentNode = head
+    for (i in 1 until size) {
+        val nextNode = ListNode(get(i))
+        currentNode.next = nextNode
+        nextNode.prev = currentNode
+        currentNode = nextNode
+    }
+    return head
+}
