@@ -12,6 +12,32 @@ class ListNode(var `val`: Int) {
         lastNode.next = node
     }
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ListNode) return false
+
+        var currentThis: ListNode? = this
+        var currentOther: ListNode? = other
+        while (currentThis != null && currentOther != null) {
+            if (currentThis.`val` != currentOther.`val`) return false
+            currentThis = currentThis.next
+            currentOther = currentOther.next
+        }
+
+        // If one ListNode is longer than other, they're not equal
+        return currentThis == null && currentOther == null
+    }
+
+    override fun hashCode(): Int {
+        var result = `val`
+        var current = next
+        while (current != null) {
+            result = 31 * result + current.`val`
+            current = current.next
+        }
+        return result
+    }
+
     override fun toString(): String {
         var output = ""
         var node: ListNode? = this
