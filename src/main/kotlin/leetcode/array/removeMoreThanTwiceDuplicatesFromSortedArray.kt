@@ -15,9 +15,9 @@ package leetcode.array
  */
 fun removeMoreThanTwiceDuplicatesFromSortedArray(nums: IntArray): Int {
     var twiceUniqueElements = 0
-
     var lastValue = Int.MIN_VALUE
     var lastValueCounter = 1
+
     nums.forEachIndexed { index, value ->
         if (value == lastValue) {
             if (lastValueCounter < 2) {
@@ -34,6 +34,27 @@ fun removeMoreThanTwiceDuplicatesFromSortedArray(nums: IntArray): Int {
     return twiceUniqueElements
 }
 
+fun removeMoreThanNDuplicatesFromSortedArray(nums: IntArray, n: Int): Int {
+    var uniqueElements = 0
+    var lastValue = Int.MIN_VALUE
+    var lastValueCounter = 1
+
+    nums.forEachIndexed { index, value ->
+        if (value == lastValue) {
+            if (lastValueCounter < n) {
+                nums[uniqueElements++] = value
+                lastValueCounter++
+            }
+        } else {
+            nums[uniqueElements++] = value
+            lastValue = value
+            lastValueCounter = 1
+        }
+    }
+
+    return uniqueElements
+}
+
 fun main() {
     var nums = intArrayOf(1, 1, 1, 2, 2, 3)
     var expected = 5
@@ -47,6 +68,6 @@ fun main() {
 
     nums = intArrayOf(1, 1, 1, 1, 2, 2, 3)
     expected = 5
-    actual = removeMoreThanTwiceDuplicatesFromSortedArray(nums)
+    actual = removeMoreThanNDuplicatesFromSortedArray(nums, n = 2)
     println(actual == expected)
 }
