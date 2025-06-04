@@ -13,8 +13,7 @@ fun removeElement(nums: IntArray, `val`: Int): Int {
     var leftElements = 0
     nums.forEachIndexed { index, value ->
         if (value != `val`) {
-            nums[leftElements] = value
-            leftElements++
+            nums[leftElements++] = value
         }
     }
     return leftElements
