@@ -6,7 +6,6 @@ package leetcode.array
  * The majority element is the element that appears more than ⌊n / 2⌋ times.
  * You may assume that the majority element always exists in the array.
  */
-
 // Memory: O(n)
 fun majorityElement(nums: IntArray): Int {
     val valueCounter = mutableMapOf<Int, Int>()
@@ -26,6 +25,19 @@ fun majorityElement(nums: IntArray): Int {
     return `val`
 }
 
+// Memory: O(1)
+// doesn't work if majority element equals to n / 2
+fun majorityElementMooreVotingAlgorithm(nums: IntArray): Int {
+    var count = 0
+    var candidate = Int.MIN_VALUE
+    nums.forEach { num ->
+        if (count == 0) candidate = num
+        if (num == candidate) count++
+        else count--
+    }
+    return candidate
+}
+
 fun main() {
     var nums = intArrayOf(3, 2, 3)
     var expected = 3
@@ -34,11 +46,11 @@ fun main() {
 
     nums = intArrayOf(2, 2, 1, 1, 1, 2, 2)
     expected = 2
-    actual = majorityElement(nums)
+    actual = majorityElementMooreVotingAlgorithm(nums)
     println(actual == expected)
 
-    nums = intArrayOf(2, 2, 1, 1, 2, 1, 0, 0, 2, 0, 0, 2, 2, 2)
+    nums = intArrayOf(2, 2, 1, 1, 2, 1, 0, 0, 2, 0, 0, 2, 2, 2, 2)
     expected = 2
-    actual = majorityElement(nums)
+    actual = majorityElementMooreVotingAlgorithm(nums)
     println(actual == expected)
 }
