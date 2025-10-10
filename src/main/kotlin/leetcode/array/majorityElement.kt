@@ -12,11 +12,11 @@ fun majorityElement(nums: IntArray): Int {
 
     nums.forEach { num ->
         val count = valueCounter[num] ?: 0
-        valueCounter.put(num, count + 1)
+        valueCounter[num] = count + 1
     }
 
     var (`val`, count) = 0 to 0
-    valueCounter.forEach { value, counter ->
+    valueCounter.forEach { (value, counter) ->
         if (counter > count) {
             `val` = value
             count = counter
