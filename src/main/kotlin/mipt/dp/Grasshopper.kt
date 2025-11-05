@@ -50,7 +50,7 @@ object Grasshopper {
         var second: Int
         var now = 0
 
-        for (i in dp.size - 1 downTo   2) {
+        for (i in dp.size - 1 downTo 2) {
             first = dp[i - 1]
             second = dp[i - 2]
             now += dp[i] + max(first, second)
@@ -63,7 +63,7 @@ fun main() {
     val test1 = listOf(-5, -10, -20, 10)
     val answer1 = 0
 
-    val test2 = listOf(-20 , -10, -5, 5)
+    val test2 = listOf(-20, -10, -5, 5)
     val answer2 = -5
 
     println(Grasshopper.letHoppin(test1))
